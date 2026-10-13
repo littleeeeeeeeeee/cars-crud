@@ -13,18 +13,18 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repository
+      - name: Check out the code
         uses: actions/checkout@v7
 
-      - name: Set up Python 3.12
+      - name: Set up Python
         uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
-      - name: Install requirements
+      - name: Install Python dependencies
         run: python -m pip install -r requirements-dev.txt
 
-      - name: Install Playwright Chromium
+      - name: Install Chromium and system dependencies
         run: python -m playwright install --with-deps chromium
 
       - name: Run unit tests
@@ -44,7 +44,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repository
+      - name: Check out the code
         uses: actions/checkout@v7
 
       - name: Set up Docker Buildx
@@ -61,4 +61,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: littleeeeeeeeeee/cars-crud:latest
+          tags: whw579136/cars-crud:latest
