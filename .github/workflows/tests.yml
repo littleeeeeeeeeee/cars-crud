@@ -62,3 +62,4 @@ jobs:
           context: .
           push: true
           tags: whw579136/cars-crud:latest
+ # trigger publish
